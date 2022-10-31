@@ -10,15 +10,15 @@ word = random.choice(word_list)
 num_lives = 5
 
 def check_guess():
-            guess = input("Enter a single letter.")
-            guess = guess.lower()  
-            while True:
-                    if guess in word:
-                        print(f"Good guess! {guess} is in the word.")
-                        break
-                    else:
-                        print(f"Sorry, {guess} is not in the word. Try again.")
-                        break 
+    guess = input("Enter a single pletter.")
+    guess = guess.lower()  
+    while True:
+        if guess in word:
+            print(f"Good guess! {guess} is in the word.")
+            break
+        else:
+            print(f"Sorry, {guess} is not in the word. Try again.")
+            break
 
 def ask_for_input():
     check = check_guess()
@@ -28,7 +28,8 @@ def ask_for_input():
             break
         else: 
             print("Invalid letter. Please, enter a single alphabetical character.")
-        check(guess)
+            break
+    check_guess()
 
 
 
