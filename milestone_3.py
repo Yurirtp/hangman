@@ -20,21 +20,19 @@ def check_guess():
                         print(f"Sorry, {guess} is not in the word. Try again.")
                         break 
 
-def ask_for_input():
-        check = check_guess
+check = check_guess()
+
+def ask_for_input(check):
         while True:
             guess = input("Enter a single letter.")
-            if len(guess) == 1 and guess.isalpha():
-                break
-            else: 
+            if len(guess) != 1 and guess.isalpha() == bool(0):
                 print("Invalid letter. Please, enter a single alphabetical character.")
                 break
-            
-        return check()
+            return check_guess()            
 
 
 
-ask_for_input()
+ask_for_input(check)
 
 
 
