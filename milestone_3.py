@@ -20,14 +20,15 @@ def check_guess():
                     break 
 
 def ask_for_input():
-        while True:
-                guess = input("Enter a single letter.")
-                if len(guess) == 1 and guess.isalpha():
-                    break
-                else: 
-                    print("Invalid letter. Please, enter a single alphabetical character.")
-                    break
-        check_guess()
+    check = check_guess()
+    while True:
+        guess = input("Enter a single letter.")
+        if len(guess) == 1 and guess.isalpha():
+            break
+        else: 
+            print("Invalid letter. Please, enter a single alphabetical character.")
+            break
+    check
             
 ask_for_input()
 
