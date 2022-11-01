@@ -2,7 +2,7 @@
 import random
 guess = input("Enter a single letter.")
 
-word_list = ["Pear", "Pineapple", "Apple", "Mango", "Melon"]
+word_list = ["pear", "pineapple", "apple", "mango", "melon"]
 
 word = random.choice(word_list)
 num_lives = 5
@@ -37,6 +37,7 @@ class Hangman:
 
 
     def ask_for_input(self):
+        print(self.word_guessed)
         while True:
                 guess = input("Enter a single letter.")
                 if len(guess) != 1 and guess.isalpha() == False:
@@ -49,11 +50,24 @@ class Hangman:
                     self.list_of_guesses.extend(guess)
                     self.check_guess(guess)                    
                     break
+                
+    def play_game(self, word_list):
+        game = Hangman(word_list,num_lives=5)
+        game.ask_for_input()
+        while True:
+            if self.num_lives == 0:
+                print("You lost!")
+            elif self.num_letters > 0:
+                game.ask_for_input()
+            else: 
+                print('Congratulations. You won the game!')
+                break   
+        
 
-    
+game = Hangman(word_list,num_lives=5)
+game.play_game(word_list)
             
-run = Hangman(word_list,num_lives)
-run.ask_for_input()
+
 
 
 
