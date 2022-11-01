@@ -66,3 +66,7 @@ else:
 
 ## MIlestone 3 
 
+Milestone 3 task is to continuously ask the user for a letter and validate it. Addtionally, the 
+
+
+
