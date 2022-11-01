@@ -66,7 +66,89 @@ else:
 
 ## MIlestone 3 
 
-Milestone 3 task is to continuously ask the user for a letter and validate it. Addtionally, the 
+Milestone 3 task is to continuously ask the user for a letter and validate it. 
+
+A new script called milestone_3.py was created. I create a while loop and set the condition to True. Setting this condition to True ensures that the code run continuously. In the body of the loop, code for guess a letter was entered and I assigned this to a variable called guess. I made sure that guess checked the guess is a single, and is an alphabetical character. I also made it that if the checks passed, it breaks out of the loop.
+
+while True:
+                guess = input("Enter a single letter.")
+                if len(guess) == 1 and guess.isalpha():
+                    break
+                else: 
+                    print("Invalid letter. Please, enter a single alphabetical character.")
+                    break
+
+If the guess does not pass the checks, then print a message saying "Invalid letter. Please, enter a single alphabetical character."
+
+I also checked my code by making the code to make the user guesses letter "a" and the secret word is "apple", then the code will check if "a" is in "apple".
+
+I then proceeded to create an if statement that checks if the guess is in the word. In the body of the if statement, I made the return print a message saying "Good guess! {guess} is in the word.". The format  of the string shows the actual guess instead of {guess}.I proceeded to create an else block that prints a message saying "Sorry, {guess} is not in the word. Try again." This block of code will run if the guess is not in the word.
+
+ while True:
+                if guess in word:
+                    print(f"Good guess! {guess} is in the word.")
+                    break
+                else:
+                    print(f"Sorry, {guess} is not in the word. Try again.")
+                    break  
 
 
 
+
+
+
+I then proceeded to create two functions which contained the code above in MIlesotne 3.
+The two functions created are check_guess and ask_for_input functions which contain the code for those two things.
+
+The functions are made by first defining the name of the function, and then created the return type of the function, which is what is returned which is shown in the code above. I also made sure to list inside parenthesis (), I listed parameters the function takes.
+I also included the curly brackets {}, this code will run whenever the function is called. This is called the body of the function.
+
+I defined a function called check_guess. I then passed in guess as a parameter for the function. Then I wrote the code for the following steps in the body of this function. ##Converting the guess into lower case, and then moving the code that to check if the guess is in the word into this function block.
+
+I then proceeded to check the check_guess function, and made sure that it takes the guessed letter as an argument and check if the letter is in the word.
+
+ def check_guess(self, guess):
+        guess = guess.lower()  
+        while True:
+                if guess in word:
+                    print(f"Good guess! {guess} is in the word.")
+                    break
+                else:
+                    print(f"Sorry, {guess} is not in the word. Try again.")
+                    break    
+
+
+
+I then defined the function called ask_for_input. I moved the code that I wrote in the Iteratively check if the input is a valid guess task into this function block.I then added outside the while loop, within the function, which call the check_guess function to check if the guess is in the word. # I then made sure to pass in the guess as an argument to the method.
+
+I then called the the function ask_for_input, to test your code.
+
+
+    def ask_for_input(self, check):
+        while True:
+                guess = input("Enter a single letter.")
+                if len(guess) == 1 and guess.isalpha():
+                    break
+                else: 
+                    print("Invalid letter. Please, enter a single alphabetical character.")
+                    break
+        self.check_guess(guess)
+
+run = Hangman(word_list,5)
+run.ask_for_input(guess)
+
+To help the write the code I created a class to initials these functions by using self:
+
+#class Hangman:
+    def __init__(self, word_list, num_lives):
+        self.word_list = word_list
+        self.word = random.choice(word_list)
+        self.guessed = [] #making an empty list to then append later 
+        self.lives = num_lives
+        self.guess = guess
+
+#
+run = Hangman(word_list,5)
+run.ask_for_input(guess)
+This allowed me to call the function ask_for_input. 
+#
