@@ -16,7 +16,6 @@ class Hangman:
         
 
     def check_guess(self, guess): # need to copy milestone 3 set up 
-        num_lives = self.num_lives
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
 
@@ -45,7 +44,7 @@ class Hangman:
                     self.check_guess(guess)                    
                     break
             
-run = Hangman(word_list,num_lives)
+run = Hangman(word_list,num_lives=5)
 run.ask_for_input()
 
 
