@@ -10,10 +10,10 @@ num_lives = 5
 class Hangman:
     def __init__(self, word_list, num_lives):
         self.word_list = word_list
+        self.num_lives = 5
         self.num_lives = num_lives
         self.word = random.choice(word_list)
         self.list_of_guesses = [] #making an empty list to then append later 
-        self.num_lives = 5
         self.word_guessed = len(self.word) * ["_"]
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
         
