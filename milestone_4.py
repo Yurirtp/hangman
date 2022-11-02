@@ -2,7 +2,7 @@
 import random
 guess = input("Enter a single letter.")
 
-word_list = ["Pear", "Pineapple", "Apple", "Mango", "Melon"]
+word_list = ["pear", "pineapple", "apple", "mango", "melon"]
 
 word = random.choice(word_list)
 num_lives = 5
