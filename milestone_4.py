@@ -2,13 +2,10 @@
 import random
 guess = input("Enter a single letter.")
 
-word_list = ["pear", "pineapple", "apple", "mango", "melon"]
-
 class Hangman:
-    def __init__(self, word_list, num_lives):
+    def __init__(self, word_list=["pear", "pineapple", "apple", "mango", "melon"], num_lives=5):
         self.word_list = word_list
         self.num_lives = num_lives
-        num_lives = int
         self.word = random.choice(word_list)
         self.list_of_guesses = [] #making an empty list to then append later 
         self.word_guessed = len(self.word) * ["_"]
@@ -26,7 +23,7 @@ class Hangman:
         else:
             self.num_lives -=1
             print(f"Sorry, {guess} is not in the word. Try again.") 
-            print(f"You have {num_lives} lives left.")    
+            print(f"You have {self.num_lives} lives left.")    
         self.list_of_guesses.extend(guess)        
 
 
@@ -44,7 +41,7 @@ class Hangman:
                     self.check_guess(guess)                    
                     break
             
-run = Hangman(word_list,num_lives=5)
+run = Hangman()
 run.ask_for_input()
 
 
