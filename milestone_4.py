@@ -6,7 +6,7 @@ class Hangman:
         self.word_list = word_list
         self.num_lives = num_lives
         self.word = random.choice(word_list)
-        self.list_of_guesses = [] #making an empty list to then append later 
+        self.list_of_guesses= [] #making an empty list to then append later 
         self.word_guessed = len(self.word) * ["_"]
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
         
@@ -23,7 +23,7 @@ class Hangman:
             self.num_lives -=1
             print(f"Sorry, {guess} is not in the word. Try again.") 
             print(f"You have {self.num_lives} lives left.")    
-        self.list_of_guesses.extend(guess)        
+        self.list_of_guesses.append(guess)        
 
 
     def ask_for_input(self): 
