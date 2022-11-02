@@ -25,7 +25,6 @@ class Hangman:
             for i, letter in enumerate(self.word):
                 if letter == guess:
                     self.word_guessed[i] = guess
-                    print(self.word_guessed)
                 self.num_letters = self.num_letters-1     
         else:
             self.num_lives -=1
