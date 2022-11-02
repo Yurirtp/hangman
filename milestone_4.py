@@ -7,7 +7,7 @@ word_list = ["Pear", "Pineapple", "Apple", "Mango", "Melon"]
 word = random.choice(word_list)
 num_lives = 5
 
-class Hangman():
+class Hangman:
     def __init__(self, word_list, num_lives):
         self.word_list = word_list
         self.num_lives = num_lives
@@ -19,7 +19,7 @@ class Hangman():
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
         
 
-    def check_guess(self, letter):
+    def check_guess(self, letter): # need to copy milestone 3 set up
         guess = guess.lower()  
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
