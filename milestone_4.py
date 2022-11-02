@@ -15,7 +15,6 @@ class Hangman:
     def check_guess(self, guess): # need to copy milestone 3 set up 
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
-
             for i, guess in enumerate(self.word):
                 if self.word[i] == guess:
                     self.word_guessed[i] = guess
