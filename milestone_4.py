@@ -7,8 +7,8 @@ word_list = ["pear", "pineapple", "apple", "mango", "melon"]
 class Hangman:
     def __init__(self, word_list, num_lives):
         self.word_list = word_list
-        self.num_lives = 5
         self.num_lives = num_lives
+        num_lives = int
         self.word = random.choice(word_list)
         self.list_of_guesses = [] #making an empty list to then append later 
         self.word_guessed = len(self.word) * ["_"]
@@ -16,7 +16,7 @@ class Hangman:
         
 
     def check_guess(self, guess): # need to copy milestone 3 set up 
-        self.num_lives = num_lives
+        num_lives = self.num_lives
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
 
@@ -40,7 +40,6 @@ class Hangman:
                     break
                 elif guess in self.list_of_guesses:
                     print("You already tried that letter!")
-                    break
                 else:
                     self.list_of_guesses.extend(guess)
                     self.check_guess(guess)                    
