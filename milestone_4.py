@@ -14,7 +14,6 @@ class Hangman:
         self.word = random.choice(word_list)
         self.list_of_guesses = [] #making an empty list to then append later 
         self.num_lives = 5
-        self.guess = guess
         self.word_guessed = len(self.word) * ["_"]
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
         
