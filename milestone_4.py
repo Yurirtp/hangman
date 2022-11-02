@@ -36,7 +36,8 @@ class Hangman:
                     print("You already tried that letter!")
                 else:
                     self.list_of_guesses.append(guess)
-                    self.check_guess(guess)                    
+                    self.check_guess(guess)  
+                    break                  
             
 run = Hangman()
 run.ask_for_input()
