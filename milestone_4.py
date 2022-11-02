@@ -7,7 +7,7 @@ word_list = ["Pear", "Pineapple", "Apple", "Mango", "Melon"]
 word = random.choice(word_list)
 num_lives = 5
 
-class Hangman:
+class Hangman():
     def __init__(self, word_list, num_lives):
         self.word_list = word_list
         self.num_lives = num_lives
@@ -19,7 +19,7 @@ class Hangman:
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
         
 
-    def check_guess(self, guess):
+    def check_guess(self, letter):
         guess = guess.lower()  
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
@@ -41,13 +41,14 @@ class Hangman:
                 guess = input("Enter a single letter.")
                 if len(guess) != 1 and guess.isalpha() == False:
                     print("Invalid letter. Please, enter a single alphabetical character.")
+                    break
                 elif guess in self.list_of_guesses:
                     print("You already tried that letter!")
+                    break
                 else:
                     self.list_of_guesses.extend(guess)
                     self.check_guess(guess)                    
                     break
-        
             
 run = Hangman(word_list,num_lives)
 run.ask_for_input()
