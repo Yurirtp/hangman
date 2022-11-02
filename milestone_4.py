@@ -4,9 +4,6 @@ guess = input("Enter a single letter.")
 
 word_list = ["pear", "pineapple", "apple", "mango", "melon"]
 
-word = random.choice(word_list)
-num_lives = 5
-
 class Hangman:
     def __init__(self, word_list, num_lives):
         self.word_list = word_list
