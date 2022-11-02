@@ -19,6 +19,7 @@ class Hangman:
         
 
     def check_guess(self, guess): # need to copy milestone 3 set up 
+        self.num_lives = 5
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
 
