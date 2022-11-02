@@ -9,7 +9,6 @@ class Hangman:
         self.list_of_guesses= [] #making an empty list to then append later 
         self.word_guessed = len(self.word) * ["_"]
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
-        
 
     def check_guess(self, guess): # need to copy milestone 3 set up 
         if guess in self.word:
@@ -33,13 +32,11 @@ class Hangman:
                 guess = guess.lower()
                 if len(guess) != 1 and guess.isalpha() == False:
                     print("Invalid letter. Please, enter a single alphabetical character.")
-                    break
                 elif guess in self.list_of_guesses:
                     print("You already tried that letter!")
                 else:
                     self.list_of_guesses.append(guess)
                     self.check_guess(guess)                    
-                    break
             
 run = Hangman()
 run.ask_for_input()
