@@ -1,6 +1,5 @@
 #%%
 import random
-guess = input("Enter a single letter.")
 
 class Hangman:
     def __init__(self, word_list=["pear", "pineapple", "apple", "mango", "melon"], num_lives=5):
