@@ -93,10 +93,6 @@ I then proceeded to create an if statement that checks if the guess is in the wo
                     break  
 
 
-
-
-
-
 I then proceeded to create two functions which contained the code above in MIlesotne 3.
 The two functions created are check_guess and ask_for_input functions which contain the code for those two things.
 
@@ -134,8 +130,42 @@ I then called the the function ask_for_input, to test your code.
                     break
         self.check_guess(guess)
 
-run = Hangman(word_list,5)
-run.ask_for_input(guess)
+
+# %%
+import random 
+
+guess = input("Enter a single letter.")
+
+word_list = ["pear", "pineapple", "apple", "mango", "melon"]
+
+word = random.choice(word_list)
+num_lives = 5
+   
+def check_guess(guess): 
+    if guess in word:
+        print(f"Good guess! {guess} is in the word.")
+    else:
+        print(f"Sorry, {guess} is not in the word. Try again.")
+
+
+def ask_for_input():
+    while True:
+        guess = input("Enter a single letter.")
+        guess = guess.lower() 
+        if len(guess) == 1 and guess.isalpha():
+            break
+        else: 
+            print("Invalid letter. Please, enter a single alphabetical character.")
+    check_guess(guess)
+            
+ask_for_input()
+
+
+# %%
+
+# Milestone 4 
+
+Method is a function that is defined inside a class.
 
 To help the write the code I created a class to initials these functions by using self:
 
@@ -148,60 +178,64 @@ class Hangman:
         self.guess = guess
  This allowed me to call the function ask_for_input. 
 
-# Milestone 4 
 
-Method is a function that is defined inside a class.
+The class Hangman is created with the following attributes: word_list num_lives word word_guessed num_letters list_of_guesses
 
+There are two methods: one asking for the input (ask_for_input) and another checking if the supplied letter is in the "word" (check_guess). "Ask_for_input_ method calls "check_guess" method whenever the user input matches the condition that it is a single alphabetical character.
+
+In case the supplied letter is not part of the "word" the number of lives attributes is reduced by one. Otherwise if the letter is guessed correctly, word_guessed and num_letters attributes are respectively updated.
+
+#%%
 import random
-guess = input("Enter a single letter.")
-
-word_list = ["Pear", "Pineapple", "Apple", "Mango", "Melon"]
-
-word = random.choice(word_list)
-num_lives = 5
 
 class Hangman:
-    def __init_(self, word_list, num_lives):
+    def __init__(self, word_list=["pear", "pineapple", "apple", "mango", "melon"], num_lives=5):
         self.word_list = word_list
         self.num_lives = num_lives
         self.word = random.choice(word_list)
-        self.list_of_guesses = [] #making an empty list to then append later 
-        self.num_lives = 5
-        self.guess = guess
+        self.list_of_guesses= [] #making an empty list to then append later 
         self.word_guessed = len(self.word) * ["_"]
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
-        
 
-    def check_guess(self, guess):
-        guess = guess.lower()  
+    def check_guess(self, guess): # need to copy milestone 3 set up 
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
-
             for i, letter in enumerate(self.word):
                 if letter == guess:
-                    self.word_guessed[i] = guess
-                    print(self.word_guessed)
-                self.num_letters = self.num_letters-1     
+                    self.word_guessed[i] = letter     
+            self.num_letters -=1     
         else:
+            letter = guess
             self.num_lives -=1
-            print(f"Sorry, {guess} is not in the word. Try again.") 
-            print(f"You have {num_lives} lives left.")    
-        self.list_of_guesses.extend(guess)        
+            print(f"Sorry, {letter} is not in the word.") 
+            print(f"You have {self.num_lives} lives left.")              
 
 
-    def ask_for_input(self):
+    def ask_for_input(self): 
         while True:
                 guess = input("Enter a single letter.")
+                guess = guess.lower()
                 if len(guess) != 1 and guess.isalpha() == False:
                     print("Invalid letter. Please, enter a single alphabetical character.")
-                    break
                 elif guess in self.list_of_guesses:
                     print("You already tried that letter!")
-                    break
                 else:
-                    self.list_of_guesses.extend(guess)
-                    self.check_guess(guess)                    
-                    break
+                    self.list_of_guesses.append(guess)
+                    self.check_guess(guess)  
+                    break                  
+            
+run = Hangman()
+run.ask_for_input()
+
+# Milestone 5 
+
+Milestone 5 leverages on the Milestone 4 Hangman class and preserves all methods and attributes detailed in Milestone 4.
+
+The addition of this Milestone is a python play_game(word_list) function which defines the logic of the game:
+
+the game stops in the case that the number of lives attribute is 0 (the player loses) or number of letters attribute is 0 (the player wins).
+the game continues otherwise, which is implemented by calling ask_input method
+
 
        
 
