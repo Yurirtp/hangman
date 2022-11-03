@@ -2,7 +2,7 @@
 import random
 
 class Hangman:
-    def __init__(self, word_list=["pear", "pineapple", "apple", "mango", "melon"], num_lives=5):
+    def __init__(self, word_list, num_lives=5):
         self.word_list = word_list
         self.num_lives = num_lives
         self.word = random.choice(word_list)
@@ -40,7 +40,7 @@ class Hangman:
                 
     
 def play_game(word_list):
-    game = Hangman()
+    game = Hangman(word_list, num_lives=5)
     game.ask_for_input()
     while True:
         if game.num_lives == 0:
