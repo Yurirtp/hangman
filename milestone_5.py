@@ -39,21 +39,21 @@ class Hangman:
 
                 
     
-def play_game():
-        game = Hangman()
-        game.ask_for_input()
-        while True:
-            if game.num_lives == 0:
-                print("You lost!")
-                break
-            elif game.num_letters > 0:
-                game.ask_for_input()
-            elif game.num_letters != 0 or game.num_letters == 0:
-                print('Congratulations. You won the game!')
-                break           
+def play_game(word_list):
+    game = Hangman()
+    game.ask_for_input()
+    while True:
+        if game.num_lives == 0:
+            print("You lost!")
+            break
+        elif game.num_letters > 0:
+            game.ask_for_input()
+        elif game.num_letters != 0 or game.num_letters == 0:
+            print('Congratulations. You won the game!')
+            break           
 
 
-play_game()
+play_game(["pear", "pineapple", "apple", "mango", "melon"])
 
 
 
