@@ -38,7 +38,8 @@ class Hangman:
                     break                  
 
                 
-    def play_game(self):
+    
+def play_game():
         game = Hangman()
         game.ask_for_input()
         while True:
@@ -49,11 +50,10 @@ class Hangman:
                 game.ask_for_input()
             elif game.num_letters != 0 or game.num_letters == 0:
                 print('Congratulations. You won the game!')
-                break   
-        
+                break           
 
-game = Hangman()
-game.play_game()
+
+play_game()
 
 
 
