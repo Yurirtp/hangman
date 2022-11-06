@@ -11,7 +11,7 @@ class Hangman:
         self.num_letters = len(set(self.word).difference(set(self.word_guessed)))
         print(self.word_guessed)
 
-    def check_guess(self, guess): # need to copy milestone 3 set up 
+    def check_guess(self, guess):  
         if guess in self.word:
             print(f"Good guess! {guess} is in the word.")
             for i, letter in enumerate(self.word):
