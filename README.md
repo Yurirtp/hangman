@@ -1,10 +1,10 @@
 # Hangman
-Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain amount of attempts.
+Hangman is a classic game in which a player thinks of a word and the other player tries to guess that word within a certain number of attempts.
 
 This is an implementation of the Hangman game, where the computer thinks of a word and the user tries to guess it. 
 ---
 ## Milestone 1 
-Milestone 1 task: Set up the development environment. This included setting up a Github account, creating a repository for the Hangman project as well as using linking the respository to GIthub. This is so that, when you tell git to start keeping track of the files in a folder (or directory), you move the commits to a git repository, in which git stores the snapshots of the files in the working directory. Additionally, I learnt the essentials of Git.
+Milestone 1 task: Set up the development environment. This included setting up a GitHub account, creating a repository for the Hangman project as well as using linking the repository to GitHub. This is so that, when you tell git to start keeping track of the files in a folder (or directory), you move the commits to a git repository, in which git stores the snapshots of the files in the working directory. Additionally, I learnt the essentials of Git.
 
 Other tasks in Milestone 1 were to use Command line (Command Prompt), for file manipulation and running terminal commands.
 ---
@@ -20,7 +20,7 @@ The following is an example of the code written for each task:
 
 - Printing out list --> print(word_list)
 
-Next I imported 'random' module in the first line of the file. --> import random 
+Next, I imported 'random' module in the first line of the file. --> import random 
 
 The random module is one of Python's built-in modules. It has a choice method which returns a random item from a given sequence.
 
@@ -68,7 +68,7 @@ else:
 
 Milestone 3 task is to continuously ask the user for a letter and validate it. 
 
-A new script called milestone_3.py was created. I create a while loop and set the condition to True. Setting this condition to True ensures that the code run continuously. In the body of the loop, code for guess a letter was entered and I assigned this to a variable called guess. I made sure that guess checked the guess is a single, and is an alphabetical character. I also made it that if the checks passed, it breaks out of the loop.
+A new script called milestone_3.py saved. I created a while loop and set the condition to True. Setting this condition to True ensures that the code runs continuously. In the body of the loop, code for the function of guessing a letter was entered, here I assigned the variable called guess. In this function, I made sure that guess checked function checked that the guess is a single entry, and is an alphabetical character. I also ensured that, if the checks passed for the first if statment, it breaks out of the loop.
 
 while True:
                 guess = input("Enter a single letter.")
@@ -76,7 +76,7 @@ while True:
                     break
                 else: 
                     print("Invalid letter. Please, enter a single alphabetical character.")
-                    break
+                    
 
 If the guess does not pass the checks, then print a message saying "Invalid letter. Please, enter a single alphabetical character."
 
@@ -90,7 +90,7 @@ I then proceeded to create an if statement that checks if the guess is in the wo
                     break
                 else:
                     print(f"Sorry, {guess} is not in the word. Try again.")
-                    break  
+                   
 
 
 I then proceeded to create two functions which contained the code above in MIlesotne 3.
@@ -103,32 +103,28 @@ I defined a function called check_guess. I then passed in guess as a parameter f
 
 I then proceeded to check the check_guess function, and made sure that it takes the guessed letter as an argument and check if the letter is in the word.
 
- def check_guess(self, guess):
-        guess = guess.lower()  
-        while True:
-                if guess in word:
-                    print(f"Good guess! {guess} is in the word.")
-                    break
-                else:
-                    print(f"Sorry, {guess} is not in the word. Try again.")
-                    break    
+def check_guess(guess): 
+    if guess in word:
+        print(f"Good guess! {guess} is in the word.")
+    else:
+        print(f"Sorry, {guess} is not in the word. Try again.")
 
 
 
-I then defined the function called ask_for_input. I moved the code that I wrote in the Iteratively check if the input is a valid guess task into this function block.I then added outside the while loop, within the function, which call the check_guess function to check if the guess is in the word. # I then made sure to pass in the guess as an argument to the method.
+
+I then defined the function called ask_for_input. I moved the code that I wrote in the Iteratively check if the input is a valid guess task into this function block. I then added outside the while loop, within the function, which call the check_guess function to check if the guess is in the word. I then made sure to pass in the guess as an argument to the method "check_guess(guess)". 
 
 I then called the the function ask_for_input, to test your code.
 
-
-    def ask_for_input(self, check):
-        while True:
-                guess = input("Enter a single letter.")
-                if len(guess) == 1 and guess.isalpha():
-                    break
-                else: 
-                    print("Invalid letter. Please, enter a single alphabetical character.")
-                    break
-        self.check_guess(guess)
+def ask_for_input():
+    while True:
+        guess = input("Enter a single letter.")
+        guess = guess.lower() 
+        if len(guess) == 1 and guess.isalpha():
+            break
+        else: 
+            print("Invalid letter. Please, enter a single alphabetical character.")
+    check_guess(guess)
 
 
 # %%
